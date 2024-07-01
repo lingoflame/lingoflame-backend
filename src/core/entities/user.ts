@@ -7,7 +7,7 @@ export class User {
   email: string;
   role: Role;
   phone_number: string;
-  created_at: Date;
+  register_date: Date;
   constructor(
     first_name: string,
     last_name: string,
@@ -21,7 +21,7 @@ export class User {
     this.email = '';
     this.phone_number = '';
     this.role = Role.User;
-    this.created_at = new Date();
+    this.register_date = new Date();
   }
 
   get name() {
@@ -37,4 +37,5 @@ export enum Role {
   Admin = 'admin',
   User = 'user',
   Teacher = 'teacher',
+  Institute = 'institute',
 }

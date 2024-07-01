@@ -1,4 +1,4 @@
 import { GenericRepository } from './generic.repository';
-import { User } from '../entities/user';
+import { Class } from '../entities/class';
 
-export interface IUserRepository extends GenericRepository<User> {}
+export interface IClassRepository extends GenericRepository<Class> {}

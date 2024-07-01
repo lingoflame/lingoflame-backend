@@ -5,7 +5,7 @@ export class Class {
     public level: ClassLevel,
     public teacher: string,
     public book: string,
-    public sessionsPerWeek: number,
+    public sessionsPerWeek: string,
     public dayOfWeek: string,
     public hour: string,
     public cost: number,
