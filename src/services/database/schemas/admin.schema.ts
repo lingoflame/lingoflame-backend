@@ -8,13 +8,13 @@ export class _Admin extends BaseUser {
   role: Role = Role.Admin;
 }
 
-export type UserDocument = HydratedDocument<_Admin>;
+export type AdminDocument = HydratedDocument<_Admin>;
 
-export const UserSchema = SchemaFactory.createForClass(_Admin).set(
+export const AdminSchema = SchemaFactory.createForClass(_Admin).set(
   'versionKey',
   false,
 );
 
-UserSchema.virtual('id').get(function () {
+AdminSchema.virtual('id').get(function () {
   return this._id.toHexString();
 });
