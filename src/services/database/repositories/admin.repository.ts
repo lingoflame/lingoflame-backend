@@ -20,6 +20,10 @@ export default class AdminRepository implements IUserRepository {
     return this.admin.findOne({ phone_number: phone_number });
   }
 
+  async findByUsername(username: string): Promise<Admin | null> {
+    return this.admin.findOne({ username: username });
+  }
+
   async findById(id: string): Promise<Admin | null> {
     return this.admin.findOne({ _id: id });
   }

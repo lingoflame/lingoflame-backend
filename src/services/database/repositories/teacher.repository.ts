@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Injectable } from '@nestjs/common';
 import { IUserRepository } from 'src/core/interfaces/user.repository';
 import { Teacher } from 'src/core/entities/teacher';
+import { Admin } from 'src/core/entities/admin';
 
 @Injectable()
 export default class TeacherRepository implements IUserRepository {
@@ -24,6 +25,10 @@ export default class TeacherRepository implements IUserRepository {
 
   async findById(id: string): Promise<Teacher | null> {
     return this.teacherModel.findOne({ _id: id });
+  }
+
+  async findByUsername(username: string): Promise<Teacher | null> {
+    return this.teacherModel.findOne({ username: username });
   }
 
   async find(): Promise<Array<Teacher>> {

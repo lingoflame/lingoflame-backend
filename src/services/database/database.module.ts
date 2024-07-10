@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { BaseUser, BaseUserSchema } from './schemas/base-user.schema';
@@ -12,7 +12,10 @@ import { Class } from 'src/core/entities/class';
 import { ClassSchema } from './schemas/class.schema';
 import { Institute } from 'src/core/entities/institute';
 import { InstituteSchema } from './schemas/institute.schema';
+import { IUserRepository } from 'src/core/interfaces/user.repository';
+import UserRepository from './repositories/user.repository';
 
+@Global()
 @Module({
   imports: [
     MongooseModule.forRootAsync({
@@ -45,7 +48,7 @@ import { InstituteSchema } from './schemas/institute.schema';
       },
     ]),
   ],
-  providers: [],
-  exports: [],
+  providers: [{ useClass: UserRepository, provide: IUserRepository }],
+  exports: [IUserRepository],
 })
 export class DatabaseModule {}
